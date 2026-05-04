@@ -18,12 +18,12 @@ body {
     color: #111;
 }
 
-/* HEADER - SOLID PREMIUM */
+/* HEADER */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 22px 40px;
+    padding: 18px 30px;
     background: #ffffff;
     border-bottom: 1px solid rgba(0,0,0,0.06);
     position: sticky;
@@ -32,85 +32,50 @@ body {
     transition: all 0.35s ease;
 }
 
-/* Shrink on scroll */
 .header.scrolled {
-    padding: 10px 40px;
-    background: #ffffff;
+    padding: 10px 25px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.08);
 }
 
-/* Subtle divider */
-.header::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 40px;
-    right: 40px;
-    height: 1px;
-    background: rgba(0,0,0,0.06);
-}
-
-/* LOGO */
 .logo {
-    height: 90px;
+    height: 80px;
     width: auto;
-    transition: all 0.35s ease;
+    transition: 0.3s;
 }
 
 .header.scrolled .logo {
-    height: 55px;
+    height: 50px;
 }
 
-/* RIGHT SIDE */
 .header-right {
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 12px;
 }
 
-/* SOCIALS */
 .socials a {
     color: #444;
-    margin: 0 6px;
+    margin: 0 4px;
     font-size: 16px;
-    transition: 0.2s;
 }
 
-.socials a:hover {
-    color: #2e7d32;
-    transform: translateY(-2px);
-}
-
-/* CTA */
 .cta {
     background: linear-gradient(135deg, #2e7d32, #1b5e20);
     color: white;
-    padding: 12px 22px;
+    padding: 10px 16px;
     border-radius: 999px;
     text-decoration: none;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    box-shadow: 0 4px 14px rgba(46,125,50,0.3);
-    transition: all 0.25s ease;
-}
-
-.cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 22px rgba(46,125,50,0.4);
+    font-size: 14px;
+    white-space: nowrap;
 }
 
 /* MENU */
 .menu-btn {
     font-size: 24px;
     cursor: pointer;
-    padding: 6px;
-    transition: 0.2s;
 }
 
-.menu-btn:hover {
-    transform: scale(1.1);
-}
-
+/* SIDEMENU */
 .sidemenu {
     position: fixed;
     top: 0;
@@ -126,14 +91,6 @@ body {
 }
 
 .sidemenu.open { transform: translateX(0); }
-
-.sidemenu a {
-    display: block;
-    color: white;
-    text-decoration: none;
-    margin: 20px 0;
-    font-size: 18px;
-}
 
 .overlay {
     position: fixed;
@@ -152,73 +109,107 @@ body {
 
 /* HERO */
 .hero {
-    min-height: calc(100vh - 80px);
+    min-height: 70vh;
     background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.65)),
     url('bar.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    padding: 60px 40px;
+    padding: 40px 20px;
     color: white;
-    animation: fadeIn 1s ease-in;
 }
 
 .hero h1 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    margin: 0;
-    max-width: 700px;
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+    max-width: 90%;
 }
 
-/* WAVE */
-.wave svg { display: block; width: 100%; margin-top: -5px; }
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.subheading {
+    font-size: clamp(1.4rem, 3.5vw, 2rem);
+    font-weight: 500;
+    letter-spacing: 2px;
+}
 
 /* SECTIONS */
 section {
-    padding: 60px 20px;
+    padding: 50px 20px;
     max-width: 1000px;
     margin: auto;
 }
 
-h2 { margin-bottom: 20px; }
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
 
-/* CARDS */
+/* ✅ RESTORED CARD STYLE */
 .card {
     background: white;
     padding: 20px;
     border-radius: 12px;
-    margin-bottom: 15px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.05);
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 15px;
-}
-
+/* ✅ FACEBOOK FIX */
 .fb-card {
-    background: white;
-    border-radius: 12px;
-    padding: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
     max-width: 500px;
     margin: auto;
+    overflow: hidden;
 }
 
 /* FOOTER */
 footer {
     text-align: center;
-    padding: 30px;
+    padding: 25px;
     background: #111;
     color: white;
 }
 
-/* ANIMATIONS */
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
+/* MOBILE */
+@media (max-width: 768px) {
+
+    .header {
+        padding: 12px 15px;
+    }
+
+    .logo {
+        height: 55px;
+    }
+
+    .header.scrolled .logo {
+        height: 45px;
+    }
+
+    .socials {
+        display: none;
+    }
+
+    .cta {
+        font-size: 13px;
+        padding: 8px 14px;
+    }
+
+    .menu-btn {
+        font-size: 22px;
+    }
+
+    .hero {
+        min-height: 60vh;
+        padding: 30px 15px;
+    }
+
+    section {
+        padding: 40px 15px;
+    }
 }
 
 </style>
@@ -244,23 +235,18 @@ footer {
             <a href="https://www.facebook.com/ajmcmurphys/" target="_blank"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-x-twitter"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-tiktok"></i></a>
         </div>
 
-        <a href="#" class="cta">View Menu</a>
+        <a href="#" class="cta">Menu</a>
         <div class="menu-btn" onclick="toggleMenu()">☰</div>
     </div>
 </div>
 
-<!-- HERO -->
 <div class="hero">
-    <h1>Live Music, Trivia, & Cold Pints</h1>
-</div>
-
-<div class="wave">
-<svg viewBox="0 0 1440 120">
-<path fill="#f5f5f5" d="M0,64L80,74.7C160,85,320,107,480,101.3C640,96,800,64,960,53.3C1120,43,1280,53,1360,58.7L1440,64V120H0Z"></path>
-</svg>
+    <div class="hero-text">
+        <h1>Live Music, Trivia, & Cold Pints</h1>
+        <p class="subheading">Greenville, NC</p>
+    </div>
 </div>
 
 <section>
@@ -274,6 +260,7 @@ footer {
 
 </section>
 
+<!-- ✅ FACEBOOK FULLY FIXED -->
 <section>
 <h2>Latest Update</h2>
 
@@ -289,13 +276,12 @@ src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0">
      data-tabs="timeline"
      data-width="500"
      data-height="600"
-     data-small-header="false"
      data-adapt-container-width="true"
      data-hide-cover="false"
      data-show-facepile="true">
 </div>
-
 </div>
+
 </section>
 
 <section>
@@ -318,7 +304,7 @@ src="https://www.google.com/maps?q=1914+Turnbury+Dr+Greenville+NC&output=embed">
 </section>
 
 <footer>
-© 2026 AJ McMurphy's Irish Pub • Est. 1995
+© 2026 AJ McMurphy's Irish Pub
 </footer>
 
 <script>
