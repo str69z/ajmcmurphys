@@ -38,13 +38,13 @@ body {
 }
 
 .logo {
-    height: 80px;
+    height: 120px;
     width: auto;
     transition: 0.3s;
 }
 
 .header.scrolled .logo {
-    height: 50px;
+    height: 70px;
 }
 
 .header-right {
@@ -53,10 +53,17 @@ body {
     gap: 12px;
 }
 
+/* SOCIALS (desktop default) */
 .socials a {
     color: #444;
     margin: 0 4px;
     font-size: 16px;
+    transition: 0.2s;
+}
+
+.socials a:hover {
+    color: #2e7d32;
+    transform: translateY(-2px);
 }
 
 .cta {
@@ -151,7 +158,7 @@ section {
     gap: 15px;
 }
 
-/* ✅ RESTORED CARD STYLE */
+/* CARD */
 .card {
     background: white;
     padding: 20px;
@@ -159,7 +166,7 @@ section {
     box-shadow: 0 5px 20px rgba(0,0,0,0.05);
 }
 
-/* ✅ FACEBOOK FIX */
+/* FACEBOOK */
 .fb-card {
     max-width: 500px;
     margin: auto;
@@ -182,15 +189,22 @@ footer {
     }
 
     .logo {
-        height: 55px;
+        height: 75px;
     }
 
     .header.scrolled .logo {
-        height: 45px;
+        height: 65px;
     }
 
+    /* ✅ FIX: socials now show on mobile */
     .socials {
-        display: none;
+        display: flex;
+        gap: 8px;
+    }
+
+    .socials a {
+        font-size: 14px;
+        margin: 0 3px;
     }
 
     .cta {
@@ -235,6 +249,7 @@ footer {
             <a href="https://www.facebook.com/ajmcmurphys/" target="_blank"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-x-twitter"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
         </div>
 
         <a href="#" class="cta">Menu</a>
@@ -260,7 +275,6 @@ footer {
 
 </section>
 
-<!-- ✅ FACEBOOK FULLY FIXED -->
 <section>
 <h2>Latest Update</h2>
 
@@ -276,9 +290,7 @@ src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0">
      data-tabs="timeline"
      data-width="500"
      data-height="600"
-     data-adapt-container-width="true"
-     data-hide-cover="false"
-     data-show-facepile="true">
+     data-adapt-container-width="true">
 </div>
 </div>
 
