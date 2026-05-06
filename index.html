@@ -3,308 +3,259 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>AJ McMurphy's Irish Pub</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 <style>
-
 body {
-    margin: 0;
-    font-family: 'Outfit', sans-serif;
-    background: #f5f5f5;
-    color: #111;
+margin: 0;
+font-family: 'Outfit', sans-serif;
+background: #f5f5f5;
+color: #111;
 }
-
 /* HEADER */
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 30px;
-    background: #ffffff;
-    border-bottom: 1px solid rgba(0,0,0,0.06);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    transition: all 0.35s ease;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 18px 30px;
+background: #ffffff;
+border-bottom: 1px solid rgba(0,0,0,0.06);
+position: sticky;
+top: 0;
+z-index: 100;
+transition: all 0.35s ease;
 }
-
 .header.scrolled {
-    padding: 10px 25px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+padding: 10px 25px;
+box-shadow: 0 8px 25px rgba(0,0,0,0.08);
 }
-
 .logo {
-    height: 120px;
-    width: auto;
-    transition: 0.3s;
+height: 120px;
+width: auto;
+transition: 0.3s;
 }
-
 .header.scrolled .logo {
-    height: 70px;
+height: 70px;
 }
-
 .header-right {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+display: flex;
+align-items: center;
+gap: 12px;
 }
-
-/* SOCIALS (desktop default) */
+/* SOCIALS */
 .socials a {
-    color: #444;
-    margin: 0 4px;
-    font-size: 16px;
-    transition: 0.2s;
+color: #444;
+margin: 0 4px;
+font-size: 16px;
+transition: 0.2s;
 }
-
 .socials a:hover {
-    color: #2e7d32;
-    transform: translateY(-2px);
+color: #2e7d32;
+transform: translateY(-2px);
 }
-
+/* CTA BUTTON - Updated with matching hover effect */
 .cta {
-    background: linear-gradient(135deg, #2e7d32, #1b5e20);
-    color: white;
-    padding: 10px 16px;
-    border-radius: 999px;
-    text-decoration: none;
-    font-size: 14px;
-    white-space: nowrap;
+background: linear-gradient(135deg, #2e7d32, #1b5e20);
+color: white;
+padding: 10px 16px;
+border-radius: 999px;
+text-decoration: none;
+font-size: 14px;
+white-space: nowrap;
+transition: all 0.2s ease;
+}
+.cta:hover {
+transform: translateY(-2px);
+box-shadow: 0 6px 15px rgba(46, 125, 50, 0.3);
 }
 
 /* MENU */
 .menu-btn {
-    font-size: 24px;
-    cursor: pointer;
+font-size: 24px;
+cursor: pointer;
 }
-
 /* SIDEMENU */
 .sidemenu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 260px;
-    height: 100%;
-    background: #111;
-    color: white;
-    padding: 30px 20px;
-    transform: translateX(-100%);
-    transition: 0.3s;
-    z-index: 1001;
+position: fixed;
+top: 0;
+left: 0;
+width: 260px;
+height: 100%;
+background: #111;
+color: white;
+padding: 30px 20px;
+transform: translateX(-100%);
+transition: 0.3s;
+z-index: 1001;
 }
-
 .sidemenu.open { transform: translateX(0); }
-
 .overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.4);
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.3s;
-    z-index: 1000;
+position: fixed;
+inset: 0;
+background: rgba(0,0,0,0.4);
+opacity: 0;
+pointer-events: none;
+transition: 0.3s;
+z-index: 1000;
 }
-
 .overlay.show {
-    opacity: 1;
-    pointer-events: all;
+opacity: 1;
+pointer-events: all;
 }
-
 /* HERO */
 .hero {
-    min-height: 70vh;
-    background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.65)),
-    url('bar.jpg');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    padding: 40px 20px;
-    color: white;
+min-height: 70vh;
+background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.65)),
+url('bar.jpg');
+background-size: cover;
+background-position: center;
+display: flex;
+align-items: center;
+padding: 40px 20px;
+color: white;
 }
-
 .hero h1 {
-    font-size: clamp(1.8rem, 6vw, 2.5rem);
-    max-width: 90%;
+font-size: clamp(1.8rem, 6vw, 2.5rem);
+max-width: 90%;
 }
-
 .hero-text {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+display: flex;
+flex-direction: column;
+gap: 10px;
 }
-
 .subheading {
-    font-size: clamp(1.4rem, 3.5vw, 2rem);
-    font-weight: 500;
-    letter-spacing: 2px;
+font-size: clamp(1.4rem, 3.5vw, 2rem);
+font-weight: 500;
+letter-spacing: 2px;
 }
-
 /* SECTIONS */
 section {
-    padding: 50px 20px;
-    max-width: 1000px;
-    margin: auto;
+padding: 50px 20px;
+max-width: 1000px;
+margin: auto;
 }
-
 /* GRID */
 .grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 15px;
+display: grid;
+grid-template-columns: 1fr;
+gap: 15px;
 }
-
 /* CARD */
 .card {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+background: white;
+padding: 20px;
+border-radius: 12px;
+box-shadow: 0 5px 20px rgba(0,0,0,0.05);
 }
-
 /* FACEBOOK */
 .fb-card {
-    max-width: 500px;
-    margin: auto;
-    overflow: hidden;
+max-width: 500px;
+margin: auto;
+overflow: hidden;
 }
-
 /* FOOTER */
 footer {
-    text-align: center;
-    padding: 25px;
-    background: #111;
-    color: white;
+text-align: center;
+padding: 25px;
+background: #111;
+color: white;
 }
-
 /* MOBILE */
 @media (max-width: 768px) {
-
-    .header {
-        padding: 12px 15px;
+.header {
+padding: 12px 15px;
     }
-
-    .logo {
-        height: 85px;
+.logo {
+height: 85px;
     }
-
-    .header.scrolled .logo {
-        height: 65px;
+.header.scrolled .logo {
+height: 65px;
     }
-
-    /* ✅ FIX: socials now show on mobile */
-    .socials {
-        display: flex;
-        gap: 8px;
+.socials {
+display: flex;
+gap: 8px;
     }
-
-    .socials a {
-        font-size: 14px;
-        margin: 0 3px;
+.socials a {
+font-size: 14px;
+margin: 0 3px;
     }
-
-    .cta {
-        font-size: 13px;
-        padding: 8px 14px;
+.cta {
+font-size: 13px;
+padding: 8px 14px;
     }
-
-    .menu-btn {
-        font-size: 22px;
+.menu-btn {
+font-size: 22px;
     }
-
-    .hero {
-        min-height: 60vh;
-        padding: 30px 15px;
+.hero {
+min-height: 60vh;
+padding: 30px 15px;
     }
-
-    section {
-        padding: 40px 15px;
+section {
+padding: 40px 15px;
     }
 }
-
 </style>
 </head>
-
 <body>
-
 <div class="sidemenu" id="menu">
-    <a href="#">Home</a>
-    <a href="#">Menu</a>
-    <a href="#">Events</a>
-    <a href="#">Hours</a>
-    <a href="#">Contact</a>
+<a href="#">Home</a>
+<a href="#">Menu</a>
+<a href="#">Events</a>
+<a href="#">Hours</a>
+<a href="#">Contact</a>
 </div>
-
 <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
-
 <div class="header">
-    <img src="logo.jpg" class="logo">
-
-    <div class="header-right">
-        <div class="socials">
-            <a href="https://www.facebook.com/ajmcmurphys/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-x-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-tiktok"></i></a>
-        </div>
-
-        <a href="menu.html" class="cta">View Menu</a>
-        <div class="menu-btn" onclick="toggleMenu()">☰</div>
-    </div>
+<img src="logo.jpg" class="logo">
+<div class="header-right">
+<div class="socials">
+<a href="https://www.facebook.com/ajmcmurphys/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+<a href="#"><i class="fab fa-x-twitter"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-tiktok"></i></a>
 </div>
-
+<a href="menu.html" class="cta">View Menu</a>
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+</div>
+</div>
 <div class="hero">
-    <div class="hero-text">
-        <h1>Live Music, Trivia, & Cold Pints</h1>
-        <p class="subheading">Greenville, NC</p>
-    </div>
+<div class="hero-text">
+<h1>Live Music, Trivia, & Cold Pints</h1>
+<p class="subheading">Greenville, NC</p>
 </div>
-
+</div>
 <section>
 <h2>Weekly Events</h2>
-
 <div class="grid">
 <div class="card"><strong>Trivia Night</strong><br>Tuesdays • 7 PM</div>
 <div class="card"><strong>Karaoke</strong><br>Thursdays • 8 PM</div>
 <div class="card"><strong>Live Music</strong><br>Fri & Sat • 9 PM</div>
 </div>
-
 </section>
-
 <section>
 <h2>Latest Update</h2>
-
 <div class="fb-card">
 <div id="fb-root"></div>
-
 <script async defer crossorigin="anonymous"
 src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0">
 </script>
-
 <div class="fb-page"
-     data-href="https://www.facebook.com/ajmcmurphys/"
-     data-tabs="timeline"
-     data-width="500"
-     data-height="600"
-     data-adapt-container-width="true">
+data-href="https://www.facebook.com/ajmcmurphys/"
+data-tabs="timeline"
+data-width="500"
+data-height="600"
+data-adapt-container-width="true">
 </div>
 </div>
-
 </section>
-
 <section>
 <h2>Visit Us</h2>
-
 <p>
 1914 Turnbury Dr<br>
 Greenville, NC<br>
 (252) 355-7956
 </p>
-
 <iframe
 width="100%"
 height="300"
@@ -312,29 +263,23 @@ style="border:0"
 loading="lazy"
 src="https://www.google.com/maps?q=1914+Turnbury+Dr+Greenville+NC&output=embed">
 </iframe>
-
 </section>
-
 <footer>
 © 2026 AJ McMurphy's Irish Pub
 </footer>
-
 <script>
 function toggleMenu() {
-    document.getElementById("menu").classList.toggle("open");
-    document.getElementById("overlay").classList.toggle("show");
+document.getElementById("menu").classList.toggle("open");
+document.getElementById("overlay").classList.toggle("show");
 }
-
 window.addEventListener("scroll", function() {
-    const header = document.querySelector(".header");
-
-    if (window.scrollY > 50) {
-        header.classList.add("scrolled");
+const header = document.querySelector(".header");
+if (window.scrollY > 50) {
+header.classList.add("scrolled");
     } else {
-        header.classList.remove("scrolled");
+header.classList.remove("scrolled");
     }
 });
 </script>
-
 </body>
 </html>
