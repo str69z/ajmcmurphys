@@ -13,7 +13,7 @@ font-family: 'Outfit', sans-serif;
 background: #f5f5f5;
 color: #111;
 }
-/* HEADER - Updated to match index.html */
+/* HEADER */
 .header {
 display: flex;
 justify-content: space-between;
@@ -54,7 +54,7 @@ transition: 0.2s;
 color: #2e7d32;
 transform: translateY(-2px);
 }
-/* CTA BUTTON - Now matches home page exactly */
+/* CTA BUTTON */
 .cta {
 background: linear-gradient(135deg, #2e7d32, #1b5e20);
 color: white;
@@ -63,11 +63,63 @@ border-radius: 999px;
 text-decoration: none;
 font-size: 14px;
 white-space: nowrap;
-transition: all 0.2s;
+transition: all 0.2s ease;
 }
 .cta:hover {
 transform: translateY(-2px);
 box-shadow: 0 6px 15px rgba(46, 125, 50, 0.3);
+}
+
+/* SIDEMENU */
+.sidemenu {
+position: fixed;
+top: 0;
+left: 0;
+width: 260px;
+height: 100%;
+background: #111;
+color: white;
+padding: 30px 20px;
+transform: translateX(-100%);
+transition: 0.3s;
+z-index: 1001;
+font-family: 'Outfit', sans-serif;
+}
+.sidemenu a {
+display: block;
+color: white;
+text-decoration: none;
+font-size: 1.1rem;
+padding: 14px 10px;
+margin: 4px 0;
+border-radius: 8px;
+transition: all 0.2s ease;
+}
+.sidemenu a:hover {
+background: rgba(255,255,255,0.1);
+padding-left: 20px;
+color: #90ee90;
+}
+.sidemenu.open { transform: translateX(0); }
+
+.overlay {
+position: fixed;
+inset: 0;
+background: rgba(0,0,0,0.4);
+opacity: 0;
+pointer-events: none;
+transition: 0.3s;
+z-index: 1000;
+}
+.overlay.show {
+opacity: 1;
+pointer-events: all;
+}
+
+/* MENU BUTTON */
+.menu-btn {
+font-size: 24px;
+cursor: pointer;
 }
 
 /* HERO */
@@ -121,6 +173,15 @@ color: #555;
 margin-bottom: 12px;
 line-height: 1.4;
 }
+
+/* FOOTER - Now matches index.html exactly */
+footer {
+text-align: center;
+padding: 25px;
+background: #111;
+color: white;
+}
+
 /* MOBILE */
 @media (max-width: 768px) {
 .menu-grid {
@@ -139,20 +200,25 @@ height: 65px;
 font-size: 13px;
 padding: 8px 14px;
 }
+.menu-btn {
+font-size: 22px;
 }
-
-/* FOOTER */
-footer {
-text-align: center;
-padding: 25px;
-background: #111;
-color: white;
 }
 </style>
 </head>
 <body>
 
-<!-- HEADER - Now matches index.html style -->
+<!-- SIDEMENU -->
+<div class="sidemenu" id="menu">
+<a href="index.html">Home</a>
+<a href="menu.html">Menu</a>
+<a href="#">Events</a>
+<a href="#">Hours</a>
+<a href="#">Contact</a>
+</div>
+<div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+<!-- HEADER -->
 <div class="header">
 <img src="logo.jpg" class="logo">
 <div class="header-right">
@@ -163,6 +229,7 @@ color: white;
 <a href="#"><i class="fab fa-tiktok"></i></a>
 </div>
 <a href="index.html" class="cta">Home</a>
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
 </div>
 </div>
 
@@ -175,7 +242,6 @@ color: white;
 <div class="menu-grid">
 <!-- LEFT COLUMN -->
 <div>
-<!-- Appetizers, Soups, Salads, Wraps content remains the same -->
 <div class="category">
 <h2>Appetizers</h2>
 <div class="item"><span>Shrimp of the Islands</span> <strong>$7.95</strong></div>
@@ -363,6 +429,10 @@ An 18% gratuity may be added to parties of 6 or more.
 </footer>
 
 <script>
+function toggleMenu() {
+document.getElementById("menu").classList.toggle("open");
+document.getElementById("overlay").classList.toggle("show");
+}
 window.addEventListener("scroll", function() {
 const header = document.querySelector(".header");
 if (window.scrollY > 50) {
