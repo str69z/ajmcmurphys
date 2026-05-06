@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu | AJ McMurphy's</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+body {
+margin: 0;
+font-family: 'Outfit', sans-serif;
+background: #f5f5f5;
+color: #111;
+}
+/* HEADER */
+.header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 15px 30px;
+background: white;
+border-bottom: 1px solid #ddd;
+}
+.logo {
+height: 50px;
+}
+.header-right {
+display: flex;
+align-items: center;
+gap: 15px;
+}
+.socials a {
+color: #333;
+margin: 0 5px;
+}
+.cta {
+background: #2e7d32;
+color: white;
+padding: 10px 18px;
+border-radius: 8px;
+text-decoration: none;
+}
+/* HERO */
+.hero {
+height: 30vh;
+background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('bar.jpg');
+background-size: cover;
+background-position: center;
+display: flex;
+align-items: center;
+justify-content: center;
+color: white;
+}
+.hero h1 {
+font-size: 2.5em;
+}
+/* LAYOUT */
+.menu-container {
+max-width: 1100px;
+margin: auto;
+padding: 40px 20px;
+}
+.menu-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 40px;
+}
+/* CATEGORY */
+.category {
+margin-bottom: 30px;
+}
+.category h2 {
+border-bottom: 2px solid #2e7d32;
+padding-bottom: 5px;
+margin-bottom: 15px;
+}
+.category h1 {
+margin-bottom: 5px;
+}
+/* ITEM */
+.item {
+display: flex;
+justify-content: space-between;
+margin: 12px 0 4px 0;
+font-weight: 500;
+}
+.desc {
+font-size: 0.9em;
+color: #555;
+margin-bottom: 12px;
+line-height: 1.4;
+}
+/* MOBILE */
+@media (max-width: 768px) {
+.menu-grid {
+grid-template-columns: 1fr;
+    }
+}
+/* FOOTER */
+footer {
+text-align: center;
+padding: 30px;
+background: #111;
+color: white;
+}
+</style>
+</head>
+<body>
+<!-- HEADER -->
+<div class="header">
+<img src="logo.jpg" class="logo">
+<div class="header-right">
+<div class="socials">
+<a href="https://www.facebook.com/ajmcmurphys/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+<a href="#"><i class="fab fa-x-twitter"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-tiktok"></i></a>
+</div>
+<a href="index.html" class="cta">Home</a>
+</div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+<h1>Our Menu</h1>
+</div>
+
+<div class="menu-container">
+<div class="menu-grid">
+<!-- LEFT COLUMN -->
+<div>
+
+<!-- Appetizers -->
+<div class="category">
+<h2>Appetizers</h2>
+<div class="item"><span>Shrimp of the Islands</span> <strong>$7.95</strong></div>
+<div class="desc">Pan seared shrimp coated with jerk seasoning, served with lime mango salsa.</div>
+
+<div class="item"><span>Wings, Wings, Wings</span> <strong>$6.95</strong></div>
+<div class="desc">Your choice of blazin' (Hot), Teriyaki, or Honey Barbeque served with dressing, carrots & celery.</div>
+
+<div class="item"><span>Nachos Especial</span> <strong>$7.25</strong></div>
+<div class="desc">Crisp tortilla chips smothered with spicy beef or chicken topped with cheddar and Jack cheese, tomatoes, black olives, scallions and jalapeños.</div>
+
+<div class="item"><span>Stuffed Mushrooms</span> <strong>$7.25</strong></div>
+<div class="desc">Fresh mushroom caps filled with crabmeat, garlic and a hint of white wine, topped with Parmesan Cheese & baked to perfection.</div>
+
+<div class="item"><span>Southwest Spring Rolls</span> <strong>$7.95</strong></div>
+<div class="desc">Filled with chicken, a blend of cheeses and southwestern herbs & spices wrapped in a light Phyllo dough then deep fried.</div>
+
+<div class="item"><span>Mozzarella Sticks</span> <strong>$6.25</strong></div>
+<div class="desc">Served with marinara.</div>
+
+<div class="item"><span>Chicken Tenderloins</span> <strong>$6.25</strong></div>
+<div class="desc">Fried in a tasty breading, served with barbeque sauce or honey mustard. Coated in a blazin' wing sauce add $0.50.</div>
+
+<div class="item"><span>Mexican Con Queso Dip</span> <strong>$7.25</strong></div>
+<div class="desc">A blend of Pepper Jack cheese, spinach, tomatoes, onions & scallions served with crisp tortilla chips.</div>
+
+<div class="item"><span>Potato Skins</span> <strong>$6.25</strong></div>
+<div class="desc">Wedges of potato skins covered with Monterey Jack & cheddar cheese topped with bacon, diced tomatoes & scallions.</div>
+
+<div class="item"><span>Anthony's Appetizer Sampler</span> <strong>$7.95</strong></div>
+<div class="desc">Con Queso Dip, potato skins and chicken tenders.</div>
+
+<div class="item"><span>C & C Plate</span> <strong>$3.95</strong></div>
+<div class="desc">Fresh celery and carrot sticks with your choice of dressing.</div>
+
+<div class="item"><span>Tortilla Chips & Salsa</span> <strong>$3.95</strong></div>
+<div class="desc">Crisp chips & zesty salsa.</div>
+
+<div class="item"><span>Hawaiian Tuna</span> <strong>$7.95</strong></div>
+<div class="desc">Spicy grilled ahi tuna in bite size pieces served with Hawaiian pineapple and ranch for dipping.</div>
+
+<div class="item"><span>Bacon & Cheese Fries</span> <strong>$7.25</strong></div>
+<div class="desc">French Fries smothered with Cheddar cheese & real bacon bits. Served with ranch dip.</div>
+</div>
+
+<!-- Soups -->
+<div class="category">
+<h2>Soups Plus</h2>
+<div class="item"><span>Soup and Salad</span> <strong>$6.95</strong></div>
+<div class="desc">A.J.'s side salad and our soup of the day.</div>
+
+<div class="item"><span>Soups of the Day</span> <strong>$4.25</strong></div>
+<div class="desc">See your server.</div>
+
+<div class="item"><span>French Onion Soup</span> <strong>$4.25</strong></div>
+<div class="desc">A crock of our version with garlic croquette and mozzarella cheese.</div>
+
+<div class="item"><span>Soup and Half Sandwich</span> <strong>$7.25</strong></div>
+<div class="desc">One half sandwich and our soup of the day (Club, Chicken Salad, or Reuben sandwich only).</div>
+
+<div class="item"><span>Half Sandwich and Side Salad</span> <strong>$7.25</strong></div>
+<div class="desc">One half sandwich (Club or chicken salad) and A.J.'s side salad.</div>
+</div>
+
+<!-- Salads -->
+<div class="category">
+<h2>Fresh from the Garden</h2>
+<div class="item"><span>McMurphy's Chef Salad</span> <strong>$7.25</strong></div>
+<div class="desc">Crisp lettuce greens, tomato, cucumber, mushrooms, boiled egg, carrots, topped with ham, roast beef, turkey, grated cheddar and Swiss cheese. Your choice of dressing.</div>
+
+<div class="item"><span>Taco Salad</span> <strong>$6.95</strong></div>
+<div class="desc">A bed of lettuce topped with seasoned beef or chicken, diced tomatoes, scallions, black olives, Monterey Jack & cheddar cheese, jalapeños and sprouts tossed in a large tortilla shell with your choice of dressing or salsa.</div>
+
+<div class="item"><span>Caesar Salad</span> <strong>$6.95</strong></div>
+<div class="desc">Crisp romaine lettuce topped with a grilled chicken breast, Parmesan cheese and croutons.</div>
+
+<div class="item"><span>Grilled Tuna & Pasta Salad</span> <strong>$7.95</strong></div>
+<div class="desc">Jerk spiced tuna grilled and mixed with pasta, carrots, red grapes, walnuts, celery & avocado then finished with our citrus vinaigrette. Served on lettuce with a side of fresh fruit.</div>
+
+<div class="item"><span>Santa Fe Chicken Salad</span> <strong>$7.25</strong></div>
+<div class="desc">Mixed greens tossed with tomatoes, red onions, cheddar cheese, pecans and spicy diced fried chicken tenders served with our honey mustard dressing.</div>
+
+<div class="item"><span>Chicken and Fruit Salad</span> <strong>$6.95</strong></div>
+<div class="desc">Cantaloupe filled with our homemade low-fat chicken salad surrounded with fresh fruit.</div>
+
+<div class="item"><span>Pasta Salad</span> <strong>$6.95</strong></div>
+<div class="desc">Tri-colored pasta spirals with red and green peppers, scallions, black olives, celery, and bacon tossed with fat free Italian dressing and Parmesan cheese. Served with fresh fruit.</div>
+
+<div class="item"><span>Grilled Chicken & Broccoli Salad</span> <strong>$7.25</strong></div>
+<div class="desc">Diced grilled chicken tossed with broccoli florets, red & green peppers, diced tomatoes, pecans, mandarin oranges and a creamy citrus vinaigrette. Served with fresh fruit.</div>
+
+<div class="item"><span>Stuffed Baked Potato</span> <strong>$6.25</strong></div>
+<div class="desc">A steamy baked potato with grilled mushrooms, onions, peppers and roast beef, ham or turkey topped with your choice of cheese.</div>
+</div>
+
+<!-- Wraps -->
+<div class="category">
+<h2>Wraps</h2>
+<div class="item"><span>Chicken Tenders Wrap</span> <strong>$6.95</strong></div>
+<div class="desc">Fried tenders rolled with lettuce and tomato with ranch on the side for dipping.</div>
+
+<div class="item"><span>A.J.'s Wrap</span> <strong>$6.95</strong></div>
+<div class="desc">Grilled chicken with lettuce, onions, and salsa with ranch for dipping.</div>
+</div>
+
+</div>
+
+<!-- RIGHT COLUMN -->
+<div>
+
+<!-- Entrees -->
+<div class="category">
+<h2>Seafood Entrees</h2>
+<div class="item"><span>Pecan Crusted Salmon</span> <strong>$14.95</strong></div>
+<div class="desc">Fresh salmon covered in a pecan breaded topping served on a bed of rice and vegetables.</div>
+
+<div class="item"><span>Crabcakes</span> <strong>$14.95</strong></div>
+<div class="desc">Two Maryland style crabcakes pan seared in butter served with a Cajun remoulade and your choice of two sides.</div>
+
+<div class="item"><span>Fried Catfish Dinner</span> <strong>$11.95</strong></div>
+<div class="desc">A generous portion of farm raised catfish served with french fries, cole slaw and hushpuppies.</div>
+
+<div class="item"><span>Pesto Shrimp</span> <strong>$12.95</strong></div>
+<div class="desc">Sauteed shrimp over penne pasta tossed with a creamy pesto and sundried tomato sauce. House salad included.</div>
+
+<div class="item"><span>Ragin' Cajun Pasta and Shrimp</span> <strong>$12.95</strong></div>
+<div class="desc">Sauteed shrimp over penne pasta in a Cajun spiced cream sauce topped with fresh tomatoes and scallions. House salad included.</div>
+
+<div class="item"><span>Fried Shrimp Dinner</span> <strong>$12.95</strong></div>
+<div class="desc">Crispy fried shrimp served with french fries, cole slaw and hushpuppies.</div>
+
+<div class="item"><span>Hawaiian Ahi Tuna and Shrimp</span> <strong>$14.95</strong></div>
+<div class="desc">Grilled spiced ahi tuna steak and shrimp topped with Hawaiian glazed pineapple served with rice and vegetable medley.</div>
+
+<h2>Beef Entrees</h2>
+<div class="item"><span>New York Strip</span> <strong>$17.95</strong></div>
+<div class="desc">A succulent, lean strip steak hand cut and grilled to your temperature of choice. Served with red skin mashed potatoes and another side of your choice.</div>
+
+<div class="item"><span>Smothered Ribeye</span> <strong>$16.95</strong></div>
+<div class="desc">10 oz ribeye perfectly grilled and smothered in mushrooms and Monterey Jack & cheddar cheeses served with your choice of two sides.</div>
+
+<div class="item"><span>Rib Eye</span> <strong>$15.95</strong></div>
+<div class="desc">A 10 oz. choice cut grilled any way you like and your choice of two sides.</div>
+
+<div class="item"><span>Steak and Shrimp</span> <strong>+$5.95</strong></div>
+<div class="desc">Add (5) grilled or sauteed shrimp to any steak above.</div>
+
+<div class="item"><span>Hibachi Steak</span> <strong>$12.95</strong></div>
+<div class="desc">A tender ribeye cubed and sauteed with garlic, mushrooms, peppers and onions in a teriyaki-soy blend over rice. House salad included.</div>
+
+<h2>Chicken Entrees</h2>
+<div class="item"><span>Chicken Stir Fry</span> <strong>$11.95</strong></div>
+<div class="desc">Boneless chicken breast stir fried with an assortment of fresh vegetables in our teriyaki sauce served over rice. House salad included.</div>
+
+<div class="item"><span>Chicken Parmesan</span> <strong>$11.95</strong></div>
+<div class="desc">A plump chicken breast breaded and deep fried served over marinara & fettuccini and topped with mozzarella & Parmesan cheeses. House salad included.</div>
+
+<div class="item"><span>Chicken Gorgonzola</span> <strong>$11.95</strong></div>
+<div class="desc">Blackened chicken breast served over bowtie pasta tossed with roasted red peppers, mushrooms, and a gorgonzola cream sauce. House salad included.</div>
+
+<div class="item"><span>Fiesta Chicken</span> <strong>$11.95</strong></div>
+<div class="desc">Grilled boneless breast of chicken topped with lemon-tomato salsa and Monterey Jack & cheddar cheese served with your choice of two sides.</div>
+
+<div class="item"><span>Pesto Chicken</span> <strong>$11.95</strong></div>
+<div class="desc">Grilled chicken breast over penne pasta tossed with a creamy pesto and sundried tomato sauce. House salad included.</div>
+
+<div class="item"><span>Ragin' Cajun Pasta and Chicken</span> <strong>$11.95</strong></div>
+<div class="desc">Grilled chicken breast over penne pasta in a Cajun spiced cream sauce topped with fresh tomatoes and scallions. House salad included.</div>
+
+<div class="item"><span>Fettucini Chicken Alfredo</span> <strong>$11.95</strong></div>
+<div class="desc">Grilled or blackened boneless chicken breast on a nest of fettucini smothered with our mushroom alfredo sauce. Served with a salad.</div>
+
+<div class="item"><span>Healthy Choice Chicken</span> <strong>$7.95</strong></div>
+<div class="desc">A boneless grilled chicken breast served with a steamed vegetable medley.</div>
+
+<h2>Pork Entrees</h2>
+<div class="item"><span>M & M Pork Chops</span> <strong>$13.95</strong></div>
+<div class="desc">Grilled boneless pork loin chops smothered with a mushroom Dijon cream sauce with choice of two sides.</div>
+
+<div class="item"><span>Jamaican Pork Chops, Mon!</span> <strong>$13.95</strong></div>
+<div class="desc">Two Boneless pork chops dusted with Jamaican Jerk seasoning and grilled. Served with lime-mango chutney and your choice of two sides.</div>
+
+<p style="font-size: 0.82em; font-style: italic; color: #555; margin-top: 20px; line-height: 1.5;">
+There is a .75 charge for split sandwiches or salads and a 1.50 charge for split entrees.<br>
+An 18% gratuity may be added to parties of 6 or more.
+</p>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<footer>
+© 2026 AJ McMurphy's Irish Pub<br>
+</footer>
+</body>
+</html>
