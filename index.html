@@ -244,16 +244,17 @@ font-size: 22px;
 background-attachment: scroll;
 }
 
-/* Improved Mobile Weekly Events */
+/* Strong Mobile Fix for Weekly Events */
 .grid {
-gap: 24px;                    /* Increased gap between cards */
+gap: 28px;                    /* Larger gap between cards */
+grid-template-columns: 1fr;   /* Force single column on mobile */
 }
 .card {
-padding: 32px 20px 28px 20px; /* More internal spacing */
-margin-bottom: 8px;
+padding: 32px 25px 35px 25px; /* More generous internal padding */
+margin-bottom: 0;
 }
 .section-card {
-padding: 40px 25px 75px 25px; /* More bottom space */
+padding: 40px 25px 90px 25px; /* Lots of bottom space */
 }
 }
 </style>
@@ -264,7 +265,7 @@ padding: 40px 25px 75px 25px; /* More bottom space */
 <a href="index.html">Home</a>
 <a href="menu.html">Menu</a>
 <a href="hours.html">Hours</a>
-<!-- <a href="#">Events</a> -->
+<a href="#">Events</a>
 <a href="contact.html">Contact</a>
 </div>
 <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
