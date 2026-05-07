@@ -214,7 +214,7 @@ background: #111;
 color: white;
 }
 
-/* MOBILE IMPROVEMENTS */
+/* ==================== MOBILE FIX ==================== */
 @media (max-width: 768px) {
 .header {
 padding: 12px 15px;
@@ -244,16 +244,16 @@ font-size: 22px;
 background-attachment: scroll;
 }
 
-/* Fix for Weekly Events cards on mobile */
+/* Improved Mobile Weekly Events */
 .grid {
-gap: 18px;
+gap: 24px;                    /* Increased gap between cards */
 }
 .card {
-padding: 24px 18px;
-min-height: auto;
+padding: 32px 20px 28px 20px; /* More internal spacing */
+margin-bottom: 8px;
 }
 .section-card {
-padding: 35px 25px 60px 25px;
+padding: 40px 25px 75px 25px; /* More bottom space */
 }
 }
 </style>
