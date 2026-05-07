@@ -70,7 +70,7 @@ transform: translateY(-2px);
 box-shadow: 0 6px 15px rgba(46, 125, 50, 0.3);
 }
 
-/* SIDEMENU - Updated Styling */
+/* SIDEMENU */
 .sidemenu {
 position: fixed;
 top: 0;
@@ -100,7 +100,6 @@ background: rgba(255,255,255,0.1);
 padding-left: 20px;
 color: #90ee90;
 }
-
 .sidemenu.open { transform: translateX(0); }
 
 .overlay {
@@ -125,49 +124,88 @@ cursor: pointer;
 
 /* HERO */
 .hero {
-min-height: 70vh;
-background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.65)),
-url('bar.jpg');
+height: 100vh;
+background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)), url('bar.jpg');
 background-size: cover;
 background-position: center;
+background-attachment: fixed;
 display: flex;
 align-items: center;
-padding: 40px 20px;
+justify-content: center;
 color: white;
-}
-.hero h1 {
-font-size: clamp(1.8rem, 6vw, 2.5rem);
-max-width: 90%;
+text-align: center;
+position: relative;
 }
 .hero-text {
-display: flex;
-flex-direction: column;
-gap: 10px;
+position: relative;
+z-index: 2;
+max-width: 90%;
+}
+.hero h1 {
+font-size: clamp(2.2rem, 7vw, 3.8rem);
+margin: 0 0 12px 0;
+line-height: 1.1;
+font-weight: 700;
 }
 .subheading {
-font-size: clamp(1.4rem, 3.5vw, 2rem);
+font-size: clamp(1.4rem, 4vw, 2.1rem);
 font-weight: 500;
-letter-spacing: 2px;
+letter-spacing: 3px;
+margin: 0;
+opacity: 0.95;
 }
-/* SECTIONS */
+
+/* SECTION CARDS - Balanced & Much Larger */
 section {
-padding: 50px 20px;
-max-width: 1000px;
-margin: auto;
+padding: 30px 20px;
+max-width: 1100px;
+margin: 20px auto;
 }
-/* GRID */
+.section-card {
+background: white;
+border-radius: 16px;
+box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+padding: 50px 55px 70px 55px;   /* Top = generous, Bottom = larger for balance */
+margin-bottom: 25px;
+}
+.section-card h2 {
+margin-top: 0;
+margin-bottom: 35px;
+color: #1b5e20;
+font-size: 1.85rem;
+}
+
+/* WEEKLY EVENTS */
 .grid {
 display: grid;
-grid-template-columns: 1fr;
-gap: 15px;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 25px;
 }
-/* CARD */
 .card {
-background: white;
-padding: 20px;
+background: #f8f9fa;
+padding: 28px 20px;
 border-radius: 12px;
-box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+text-align: center;
+transition: transform 0.2s;
+display: flex;
+flex-direction: column;
+height: 100%;
 }
+.card-content {
+flex: 1;
+}
+.card i {
+font-size: 2.8rem;
+color: #333;
+margin-top: auto;
+padding-top: 25px;
+opacity: 0.85;
+}
+.card:hover {
+transform: translateY(-5px);
+}
+
 /* FOOTER */
 footer {
 text-align: center;
@@ -203,21 +241,21 @@ padding: 8px 14px;
 font-size: 22px;
 }
 .hero {
-min-height: 60vh;
-padding: 30px 15px;
+background-attachment: scroll;
 }
-section {
-padding: 40px 15px;
+.section-card {
+padding: 40px 30px 55px 30px;
 }
 }
 </style>
 </head>
 <body>
+
 <div class="sidemenu" id="menu">
 <a href="index.html">Home</a>
 <a href="menu.html">Menu</a>
-<!--<a href="#">Events</a>-->
 <a href="hours.html">Hours</a>
+<a href="#">Events</a>
 <a href="contact.html">Contact</a>
 </div>
 <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
@@ -236,6 +274,7 @@ padding: 40px 15px;
 </div>
 </div>
 
+<!-- Full-screen Hero -->
 <div class="hero">
 <div class="hero-text">
 <h1>Live Music, Trivia, & Cold Pints</h1>
@@ -243,16 +282,41 @@ padding: 40px 15px;
 </div>
 </div>
 
+<!-- Weekly Events -->
 <section>
+<div class="section-card">
 <h2>Weekly Events</h2>
 <div class="grid">
-<div class="card"><strong>Trivia Night</strong><br>Tuesdays • 7 PM</div>
-<div class="card"><strong>Karaoke</strong><br>Thursdays • 8 PM</div>
-<div class="card"><strong>Live Music</strong><br>Fri & Sat • 9 PM</div>
+<div class="card">
+<div class="card-content">
+<strong>Trivia Night</strong><br>
+Tuesdays • 7 PM
+</div>
+<i class="fas fa-question-circle"></i>
+</div>
+
+<div class="card">
+<div class="card-content">
+<strong>Karaoke</strong><br>
+Thursdays • 8 PM
+</div>
+<i class="fas fa-microphone"></i>
+</div>
+
+<div class="card">
+<div class="card-content">
+<strong>Live Music</strong><br>
+Fri & Sat • 9 PM
+</div>
+<i class="fas fa-music"></i>
+</div>
+</div>
 </div>
 </section>
 
+<!-- Latest Updates -->
 <section>
+<div class="section-card">
 <h2>Latest Updates</h2>
 <div class="fb-card">
 <div id="fb-root"></div>
@@ -267,22 +331,26 @@ data-height="600"
 data-adapt-container-width="true">
 </div>
 </div>
+</div>
 </section>
 
+<!-- Visit Us -->
 <section>
+<div class="section-card">
 <h2>Visit Us</h2>
-<p>
-1914 Turnbury Dr<br>
+<p style="font-size: 1.1rem; line-height: 1.6;">
+<strong>1914 Turnbury Dr</strong><br>
 Greenville, NC<br>
 (252) 355-7956
 </p>
 <iframe
 width="100%"
-height="300"
-style="border:0"
+height="320"
+style="border:0; border-radius: 12px; margin-top: 15px;"
 loading="lazy"
 src="https://www.google.com/maps?q=1914+Turnbury+Dr+Greenville+NC&output=embed">
 </iframe>
+</div>
 </section>
 
 <footer>
