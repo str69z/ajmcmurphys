@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AJ McMurphy's Irish Pub</title>
+<title>Hours | AJ McMurphy's Irish Pub</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
@@ -70,7 +70,7 @@ transform: translateY(-2px);
 box-shadow: 0 6px 15px rgba(46, 125, 50, 0.3);
 }
 
-/* SIDEMENU - Updated Styling */
+/* SIDEMENU */
 .sidemenu {
 position: fixed;
 top: 0;
@@ -100,7 +100,6 @@ background: rgba(255,255,255,0.1);
 padding-left: 20px;
 color: #90ee90;
 }
-
 .sidemenu.open { transform: translateX(0); }
 
 .overlay {
@@ -125,49 +124,65 @@ cursor: pointer;
 
 /* HERO */
 .hero {
-min-height: 70vh;
-background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.65)),
-url('bar.jpg');
+min-height: 40vh;
+background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)), url('bar.jpg');
 background-size: cover;
 background-position: center;
 display: flex;
 align-items: center;
-padding: 40px 20px;
+justify-content: center;
 color: white;
+text-align: center;
 }
 .hero h1 {
-font-size: clamp(1.8rem, 6vw, 2.5rem);
-max-width: 90%;
+font-size: clamp(2.2rem, 6vw, 3rem);
+margin: 0;
 }
-.hero-text {
+
+/* HOURS CONTENT */
+.hours-container {
+max-width: 700px;
+margin: 40px auto;
+padding: 0 20px;
+}
+.hours-card {
+background: white;
+border-radius: 16px;
+box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+padding: 40px 30px;
+text-align: center;
+}
+.hours-card h2 {
+color: #2e7d32;
+margin-bottom: 30px;
+font-size: 1.8rem;
+}
+.hours-list {
 display: flex;
 flex-direction: column;
-gap: 10px;
+gap: 18px;
+max-width: 360px;
+margin: 0 auto;
 }
-.subheading {
-font-size: clamp(1.4rem, 3.5vw, 2rem);
+.day {
+display: flex;
+justify-content: space-between;
+align-items: center;
+font-size: 1.15rem;
+padding: 8px 0;
+border-bottom: 1px solid #eee;
+}
+.day:last-child {
+border-bottom: none;
+}
+.day-name {
 font-weight: 500;
-letter-spacing: 2px;
 }
-/* SECTIONS */
-section {
-padding: 50px 20px;
-max-width: 1000px;
-margin: auto;
+.closed {
+color: #d32f2f;
+font-weight: 500;
 }
-/* GRID */
-.grid {
-display: grid;
-grid-template-columns: 1fr;
-gap: 15px;
-}
-/* CARD */
-.card {
-background: white;
-padding: 20px;
-border-radius: 12px;
-box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-}
+
 /* FOOTER */
 footer {
 text-align: center;
@@ -187,14 +202,6 @@ height: 85px;
 .header.scrolled .logo {
 height: 65px;
 }
-.socials {
-display: flex;
-gap: 8px;
-}
-.socials a {
-font-size: 14px;
-margin: 0 3px;
-}
 .cta {
 font-size: 13px;
 padding: 8px 14px;
@@ -203,25 +210,27 @@ padding: 8px 14px;
 font-size: 22px;
 }
 .hero {
-min-height: 60vh;
-padding: 30px 15px;
+min-height: 35vh;
 }
-section {
-padding: 40px 15px;
+.hours-card {
+padding: 30px 20px;
 }
 }
 </style>
 </head>
 <body>
+
+<!-- SIDEMENU -->
 <div class="sidemenu" id="menu">
 <a href="index.html">Home</a>
 <a href="menu.html">Menu</a>
-<!--<a href="#">Events</a>-->
 <a href="hours.html">Hours</a>
+<!--<a href="#">Events</a> -->
 <a href="contact.html">Contact</a>
 </div>
 <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
+<!-- HEADER -->
 <div class="header">
 <img src="logo.jpg" class="logo">
 <div class="header-right">
@@ -231,59 +240,31 @@ padding: 40px 15px;
 <a href="#"><i class="fab fa-instagram"></i></a>
 <a href="#"><i class="fab fa-tiktok"></i></a>
 </div>
-<a href="menu.html" class="cta">View Menu</a>
+<a href="index.html" class="cta">Home</a>
 <div class="menu-btn" onclick="toggleMenu()">☰</div>
 </div>
 </div>
 
+<!-- HERO -->
 <div class="hero">
-<div class="hero-text">
-<h1>Live Music, Trivia, & Cold Pints</h1>
-<p class="subheading">Greenville, NC</p>
-</div>
+<h1>Hours</h1>
 </div>
 
-<section>
-<h2>Weekly Events</h2>
-<div class="grid">
-<div class="card"><strong>Trivia Night</strong><br>Tuesdays • 7 PM</div>
-<div class="card"><strong>Karaoke</strong><br>Thursdays • 8 PM</div>
-<div class="card"><strong>Live Music</strong><br>Fri & Sat • 9 PM</div>
-</div>
-</section>
-
-<section>
-<h2>Latest Updates</h2>
-<div class="fb-card">
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous"
-src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0">
-</script>
-<div class="fb-page"
-data-href="https://www.facebook.com/ajmcmurphys/"
-data-tabs="timeline"
-data-width="500"
-data-height="600"
-data-adapt-container-width="true">
+<!-- MAIN CONTENT -->
+<div class="hours-container">
+<div class="hours-card">
+<h2>Our Hours</h2>
+<div class="hours-list">
+<div class="day"><span class="day-name">Thursday</span> <span>4:00 PM – 12:00 AM</span></div>
+<div class="day"><span class="day-name">Friday</span> <span>4:00 PM – 1:00 AM</span></div>
+<div class="day"><span class="day-name">Saturday</span> <span>4:00 PM – 1:00 AM</span></div>
+<div class="day"><span class="day-name">Sunday</span> <span class="closed">Closed</span></div>
+<div class="day"><span class="day-name">Monday</span> <span class="closed">Closed</span></div>
+<div class="day"><span class="day-name">Tuesday</span> <span>4:00 PM – 10:00 PM</span></div>
+<div class="day"><span class="day-name">Wednesday</span> <span>4:00 PM – 10:00 PM</span></div>
 </div>
 </div>
-</section>
-
-<section>
-<h2>Visit Us</h2>
-<p>
-1914 Turnbury Dr<br>
-Greenville, NC<br>
-(252) 355-7956
-</p>
-<iframe
-width="100%"
-height="300"
-style="border:0"
-loading="lazy"
-src="https://www.google.com/maps?q=1914+Turnbury+Dr+Greenville+NC&output=embed">
-</iframe>
-</section>
+</div>
 
 <footer>
 © 2026 AJ McMurphy's Irish Pub
