@@ -155,7 +155,7 @@ margin: 0;
 opacity: 0.95;
 }
 
-/* SECTION CARDS - Even Larger Bottom Space */
+/* SECTION CARDS */
 section {
 padding: 25px 20px;
 max-width: 1100px;
@@ -165,7 +165,7 @@ margin: 12px auto;
 background: white;
 border-radius: 16px;
 box-shadow: 0 10px 35px rgba(0,0,0,0.08);
-padding: 50px 55px 85px 55px;   /* Much larger bottom padding */
+padding: 50px 55px 85px 55px;
 margin-bottom: 12px;
 }
 .section-card h2 {
@@ -179,7 +179,7 @@ font-size: 1.85rem;
 .grid {
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-gap: 25px;
+gap: 20px;
 }
 .card {
 background: #f8f9fa;
@@ -214,7 +214,7 @@ background: #111;
 color: white;
 }
 
-/* MOBILE */
+/* MOBILE IMPROVEMENTS */
 @media (max-width: 768px) {
 .header {
 padding: 12px 15px;
@@ -243,8 +243,17 @@ font-size: 22px;
 .hero {
 background-attachment: scroll;
 }
+
+/* Fix for Weekly Events cards on mobile */
+.grid {
+gap: 18px;
+}
+.card {
+padding: 24px 18px;
+min-height: auto;
+}
 .section-card {
-padding: 40px 30px 70px 30px;
+padding: 35px 25px 60px 25px;
 }
 }
 </style>
