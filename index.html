@@ -165,23 +165,24 @@ body {
     opacity: 0.95;
 }
 
-/* Latest Updates */
-.latest-updates {
+/* Latest Updates & Visit Us - Full Screen */
+.content-section {
+    height: 100vh;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+.content-card {
     max-width: 1000px;
-    margin: 0 auto;
+    width: 90%;
     background: white;
     border-radius: 16px;
     box-shadow: 0 10px 35px rgba(0,0,0,0.08);
-    padding: 40px;
-}
-.latest-updates h2 {
-    text-align: left;
-    margin-bottom: 25px;
-}
-.fb-card {
-    max-width: 500px;
-    margin: 0 auto;
-    height: 650px;           /* Taller Facebook feed */
+    padding: 50px 40px;
+    text-align: center;
 }
 
 /* FOOTER */
@@ -190,16 +191,18 @@ footer {
     padding: 25px;
     background: #111;
     color: white;
-    scroll-snap-align: start;
 }
 
 /* MOBILE */
 @media (max-width: 768px) {
-    .event-section {
+    .event-section, .content-section {
         background-attachment: scroll;
     }
     .fb-card {
         height: 550px;
+    }
+    .content-card {
+        padding: 35px 20px;
     }
 }
 </style>
@@ -260,9 +263,9 @@ footer {
 </div>
 </div>
 
-<!-- Latest Updates -->
-<section style="padding: 80px 20px; background: #f5f5f5;">
-<div class="latest-updates">
+<!-- Latest Updates - Full Screen -->
+<div class="content-section">
+<div class="content-card">
 <h2>Latest Updates</h2>
 <div class="fb-card">
 <div id="fb-root"></div>
@@ -278,26 +281,26 @@ data-adapt-container-width="true">
 </div>
 </div>
 </div>
-</section>
+</div>
 
-<!-- Visit Us -->
-<section style="padding: 80px 20px; background: #f5f5f5;">
-<div style="max-width: 1000px; margin: 0 auto; background: white; border-radius: 16px; box-shadow: 0 10px 35px rgba(0,0,0,0.08); padding: 40px;">
+<!-- Visit Us - Full Screen -->
+<div class="content-section">
+<div class="content-card">
 <h2>Visit Us</h2>
-<p style="font-size: 1.1rem; line-height: 1.6;">
+<p style="font-size: 1.25rem; line-height: 1.7; margin-bottom: 25px;">
 <strong>1914 Turnbury Dr</strong><br>
-Greenville, NC<br>
+Greenville, NC<br><br>
 (252) 355-7956
 </p>
 <iframe
 width="100%"
-height="320"
-style="border:0; border-radius: 12px; margin-top: 15px;"
+height="420"
+style="border:0; border-radius: 12px;"
 loading="lazy"
 src="https://www.google.com/maps?q=1914+Turnbury+Dr+Greenville+NC&output=embed">
 </iframe>
 </div>
-</section>
+</div>
 
 <footer>
 © 2026 AJ McMurphy's Irish Pub
