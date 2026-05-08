@@ -226,6 +226,18 @@ footer {
     display: inline-block;
 }
 
+/* ==================== TABLET / iPAD ==================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .event-section {
+        background-attachment: scroll;   /* Critical fix for iPad distortion */
+        background-size: cover;
+        background-position: center;
+    }
+    .content-section {
+        height: 100vh;
+    }
+}
+
 /* MOBILE */
 @media (max-width: 768px) {
     .event-section, .content-section {
@@ -317,29 +329,27 @@ footer {
 <div class="content-card">
 <h2>Latest Updates</h2>
 <div class="fb-card">
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" 
-            src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v20.0">
-    </script>
-    
-    <div class="fb-page"
-         data-href="https://www.facebook.com/ajmcmurphys/"
-         data-tabs="timeline"
-         data-width="500"
-         data-height="650"
-         data-adapt-container-width="true"
-         data-small-header="false"
-         data-hide-cover="false"
-         data-show-facepile="true">
-    </div>
-
-    <!-- Fallback if Facebook widget fails to load -->
-    <div class="fb-fallback" id="fb-fallback">
-        <p><strong>Follow us on Facebook</strong><br>for the latest news, events, and specials!</p>
-        <a href="https://www.facebook.com/ajmcmurphys/" target="_blank">
-            <i class="fab fa-facebook-f"></i> Visit Our Facebook Page
-        </a>
-    </div>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous"
+src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v20.0">
+</script>
+<div class="fb-page"
+data-href="https://www.facebook.com/ajmcmurphys/"
+data-tabs="timeline"
+data-width="500"
+data-height="650"
+data-adapt-container-width="true"
+data-small-header="false"
+data-hide-cover="false"
+data-show-facepile="true">
+</div>
+<!-- Fallback if Facebook widget fails to load -->
+<div class="fb-fallback" id="fb-fallback">
+<p><strong>Follow us on Facebook</strong><br>for the latest news, events, and specials!</p>
+<a href="https://www.facebook.com/ajmcmurphys/" target="_blank">
+<i class="fab fa-facebook-f"></i> Visit Our Facebook Page
+</a>
+</div>
 </div>
 </div>
 </div>
@@ -369,29 +379,26 @@ src="https://www.google.com/maps?q=1914+Turnbury+Dr+Greenville+NC&output=embed">
 
 <script>
 function toggleMenu() {
-    document.getElementById("menu").classList.toggle("open");
-    document.getElementById("overlay").classList.toggle("show");
+document.getElementById("menu").classList.toggle("open");
+document.getElementById("overlay").classList.toggle("show");
 }
-
 window.addEventListener("scroll", function() {
-    const header = document.querySelector(".header");
-    if (window.scrollY > 50) {
-        header.classList.add("scrolled");
-    } else {
-        header.classList.remove("scrolled");
-    }
+const header = document.querySelector(".header");
+if (window.scrollY > 50) {
+header.classList.add("scrolled");
+} else {
+header.classList.remove("scrolled");
+}
 });
-
 // Facebook Fallback Logic
 window.addEventListener('load', function() {
-    setTimeout(() => {
-        const fbContainer = document.querySelector('.fb-page');
-        const fallback = document.getElementById('fb-fallback');
-        
-        if (fbContainer && fbContainer.offsetHeight < 200) {
-            fallback.style.display = 'block';
-        }
-    }, 3000); // Give Facebook 3 seconds to load
+setTimeout(() => {
+const fbContainer = document.querySelector('.fb-page');
+const fallback = document.getElementById('fb-fallback');
+if (fbContainer && fbContainer.offsetHeight < 200) {
+fallback.style.display = 'block';
+}
+}, 3000);
 });
 </script>
 </body>
