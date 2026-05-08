@@ -10,7 +10,7 @@
 html {
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
-    scroll-padding-top: 80px;   /* Accounts for header height */
+    scroll-padding-top: 80px;
 }
 
 body {
@@ -20,7 +20,7 @@ body {
     color: #111;
 }
 
-/* HEADER - Original behavior */
+/* HEADER */
 .header {
     display: flex;
     justify-content: space-between;
@@ -28,7 +28,7 @@ body {
     padding: 18px 30px;
     background: #ffffff;
     border-bottom: 1px solid rgba(0,0,0,0.06);
-    position: fixed;           /* Changed to fixed for better snapping */
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -173,11 +173,15 @@ body {
     border-radius: 16px;
     box-shadow: 0 10px 35px rgba(0,0,0,0.08);
     padding: 40px;
-    text-align: center;
+}
+.latest-updates h2 {
+    text-align: left;
+    margin-bottom: 25px;
 }
 .fb-card {
     max-width: 500px;
-    margin: 20px auto;
+    margin: 0 auto;
+    height: 650px;           /* Taller Facebook feed */
 }
 
 /* FOOTER */
@@ -193,6 +197,9 @@ footer {
 @media (max-width: 768px) {
     .event-section {
         background-attachment: scroll;
+    }
+    .fb-card {
+        height: 550px;
     }
 }
 </style>
@@ -266,7 +273,7 @@ src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0">
 data-href="https://www.facebook.com/ajmcmurphys/"
 data-tabs="timeline"
 data-width="500"
-data-height="600"
+data-height="650"
 data-adapt-container-width="true">
 </div>
 </div>
