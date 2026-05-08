@@ -7,261 +7,193 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-body {
-margin: 0;
-font-family: 'Outfit', sans-serif;
-background: #f5f5f5;
-color: #111;
+html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;   /* Accounts for header height */
 }
-/* HEADER */
+
+body {
+    margin: 0;
+    font-family: 'Outfit', sans-serif;
+    background: #f5f5f5;
+    color: #111;
+}
+
+/* HEADER - Original behavior */
 .header {
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 18px 30px;
-background: #ffffff;
-border-bottom: 1px solid rgba(0,0,0,0.06);
-position: sticky;
-top: 0;
-z-index: 100;
-transition: all 0.35s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 30px;
+    background: #ffffff;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    position: fixed;           /* Changed to fixed for better snapping */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    transition: all 0.35s ease;
 }
 .header.scrolled {
-padding: 10px 25px;
-box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    padding: 10px 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
 }
 .logo {
-height: 120px;
-width: auto;
-transition: 0.3s;
+    height: 120px;
+    width: auto;
+    transition: 0.3s;
 }
 .header.scrolled .logo {
-height: 70px;
+    height: 70px;
 }
 .header-right {
-display: flex;
-align-items: center;
-gap: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
-/* SOCIALS */
 .socials a {
-color: #444;
-margin: 0 4px;
-font-size: 16px;
-transition: 0.2s;
+    color: #444;
+    margin: 0 4px;
+    font-size: 16px;
+    transition: 0.2s;
 }
 .socials a:hover {
-color: #2e7d32;
-transform: translateY(-2px);
+    color: #2e7d32;
+    transform: translateY(-2px);
 }
-/* CTA BUTTON */
 .cta {
-background: linear-gradient(135deg, #2e7d32, #1b5e20);
-color: white;
-padding: 10px 16px;
-border-radius: 999px;
-text-decoration: none;
-font-size: 14px;
-white-space: nowrap;
-transition: all 0.2s ease;
+    background: linear-gradient(135deg, #2e7d32, #1b5e20);
+    color: white;
+    padding: 10px 16px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 14px;
+    white-space: nowrap;
+    transition: all 0.2s ease;
 }
 .cta:hover {
-transform: translateY(-2px);
-box-shadow: 0 6px 15px rgba(46, 125, 50, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(46, 125, 50, 0.3);
 }
 
 /* SIDEMENU */
 .sidemenu {
-position: fixed;
-top: 0;
-left: 0;
-width: 260px;
-height: 100%;
-background: #111;
-color: white;
-padding: 30px 20px;
-transform: translateX(-100%);
-transition: 0.3s;
-z-index: 1001;
-font-family: 'Outfit', sans-serif;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100%;
+    background: #111;
+    color: white;
+    padding: 30px 20px;
+    transform: translateX(-100%);
+    transition: 0.3s;
+    z-index: 1001;
+    font-family: 'Outfit', sans-serif;
 }
 .sidemenu a {
-display: block;
-color: white;
-text-decoration: none;
-font-size: 1.1rem;
-padding: 14px 10px;
-margin: 4px 0;
-border-radius: 8px;
-transition: all 0.2s ease;
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 14px 10px;
+    margin: 4px 0;
+    border-radius: 8px;
+    transition: all 0.2s ease;
 }
 .sidemenu a:hover {
-background: rgba(255,255,255,0.1);
-padding-left: 20px;
-color: #90ee90;
+    background: rgba(255,255,255,0.1);
+    padding-left: 20px;
+    color: #90ee90;
 }
 .sidemenu.open { transform: translateX(0); }
 
 .overlay {
-position: fixed;
-inset: 0;
-background: rgba(0,0,0,0.4);
-opacity: 0;
-pointer-events: none;
-transition: 0.3s;
-z-index: 1000;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+    z-index: 1000;
 }
 .overlay.show {
-opacity: 1;
-pointer-events: all;
+    opacity: 1;
+    pointer-events: all;
 }
 
-/* MENU BUTTON */
-.menu-btn {
-font-size: 24px;
-cursor: pointer;
+/* FULL SCREEN SECTIONS */
+.event-section {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+.event-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.65));
 }
 
-/* HERO */
-.hero {
-height: 100vh;
-background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)), url('bar.jpg');
-background-size: cover;
-background-position: center;
-background-attachment: fixed;
-display: flex;
-align-items: center;
-justify-content: center;
-color: white;
-text-align: center;
-position: relative;
+/* Content */
+.event-content {
+    position: relative;
+    z-index: 2;
+    max-width: 90%;
 }
-.hero-text {
-position: relative;
-z-index: 2;
-max-width: 90%;
+.hero h1, .event-section h2 {
+    font-size: clamp(2.2rem, 7vw, 3.8rem);
+    margin: 0 0 12px 0;
+    line-height: 1.1;
+    font-weight: 700;
 }
-.hero h1 {
-font-size: clamp(2.2rem, 7vw, 3.8rem);
-margin: 0 0 12px 0;
-line-height: 1.1;
-font-weight: 700;
-}
-.subheading {
-font-size: clamp(1.4rem, 4vw, 2.1rem);
-font-weight: 500;
-letter-spacing: 3px;
-margin: 0;
-opacity: 0.95;
+.subheading, .event-section p {
+    font-size: clamp(1.4rem, 4vw, 2.1rem);
+    font-weight: 500;
+    letter-spacing: 3px;
+    margin: 0;
+    opacity: 0.95;
 }
 
-/* SECTION CARDS */
-section {
-padding: 25px 20px;
-max-width: 1100px;
-margin: 12px auto;
+/* Latest Updates */
+.latest-updates {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+    padding: 40px;
+    text-align: center;
 }
-.section-card {
-background: white;
-border-radius: 16px;
-box-shadow: 0 10px 35px rgba(0,0,0,0.08);
-padding: 50px 55px 85px 55px;
-margin-bottom: 12px;
-}
-.section-card h2 {
-margin-top: 0;
-margin-bottom: 35px;
-color: #1b5e20;
-font-size: 1.85rem;
-}
-
-/* WEEKLY EVENTS */
-.grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-gap: 20px;
-}
-.card {
-background: #f8f9fa;
-padding: 28px 20px;
-border-radius: 12px;
-box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-text-align: center;
-transition: transform 0.2s;
-display: flex;
-flex-direction: column;
-height: 100%;
-}
-.card-content {
-flex: 1;
-}
-.card i {
-font-size: 2.8rem;
-color: #333;
-margin-top: auto;
-padding-top: 25px;
-opacity: 0.85;
-}
-.card:hover {
-transform: translateY(-5px);
+.fb-card {
+    max-width: 500px;
+    margin: 20px auto;
 }
 
 /* FOOTER */
 footer {
-text-align: center;
-padding: 25px;
-background: #111;
-color: white;
+    text-align: center;
+    padding: 25px;
+    background: #111;
+    color: white;
+    scroll-snap-align: start;
 }
 
-/* ==================== MOBILE FIX ==================== */
+/* MOBILE */
 @media (max-width: 768px) {
-.header {
-padding: 12px 15px;
-}
-.logo {
-height: 85px;
-}
-.header.scrolled .logo {
-height: 65px;
-}
-.socials {
-display: flex;
-gap: 8px;
-}
-.socials a {
-font-size: 14px;
-margin: 0 3px;
-}
-.cta {
-font-size: 13px;
-padding: 8px 14px;
-}
-.menu-btn {
-font-size: 22px;
-}
-.hero {
-background-attachment: scroll;
-}
-
-/* Strong Mobile Fix for Weekly Events */
-.grid {
-gap: 100px;
-grid-template-columns: 1fr;
-}
-.card {
-padding: 32px 25px 35px 25px;
-margin-bottom: 0;
-}
-.card i {
-padding-top: 2px;     /* Reduced space between text and icon on mobile */
-font-size: 2.6rem;
-}
-
-/* Extra bottom space for the white box */
-.section-card {
-padding: 40px 25px 90px 25px;
-}
+    .event-section {
+        background-attachment: scroll;
+    }
 }
 </style>
 </head>
@@ -271,7 +203,6 @@ padding: 40px 25px 90px 25px;
 <a href="index.html">Home</a>
 <a href="menu.html">Menu</a>
 <a href="hours.html">Hours</a>
-<!--<a href="#">Events</a>-->
 <a href="contact.html">Contact</a>
 </div>
 <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
@@ -290,49 +221,41 @@ padding: 40px 25px 90px 25px;
 </div>
 </div>
 
-<!-- Full-screen Hero -->
-<div class="hero">
-<div class="hero-text">
+<!-- Main Hero -->
+<div class="event-section hero" style="background-image: url('bar.jpg');">
+<div class="event-content">
 <h1>Live Music, Trivia, & Cold Pints</h1>
 <p class="subheading">Greenville, NC</p>
 </div>
 </div>
 
-<!-- Weekly Events -->
-<section>
-<div class="section-card">
-<h2>Weekly Events</h2>
-<div class="grid">
-<div class="card">
-<div class="card-content">
-<strong>Trivia Night</strong><br>
-Tuesdays • 7 PM
+<!-- Trivia Night -->
+<div class="event-section" style="background-image: url('trivia.jpg');">
+<div class="event-content">
+<h2>Trivia Night</h2>
+<p>Tuesdays • 7 PM</p>
 </div>
-<i class="fas fa-book"></i>
 </div>
 
-<div class="card">
-<div class="card-content">
-<strong>Karaoke</strong><br>
-Thursdays • 8 PM
+<!-- Karaoke -->
+<div class="event-section" style="background-image: url('karaoke.jpeg');">
+<div class="event-content">
+<h2>Karaoke</h2>
+<p>Thursdays • 8 PM</p>
 </div>
-<i class="fas fa-microphone"></i>
 </div>
 
-<div class="card">
-<div class="card-content">
-<strong>Live Music</strong><br>
-Fri & Sat • 9 PM
-</div>
-<i class="fas fa-music"></i>
-</div>
+<!-- Live Music -->
+<div class="event-section" style="background-image: url('music.jpg');">
+<div class="event-content">
+<h2>Live Music</h2>
+<p>Fri & Sat • 9 PM</p>
 </div>
 </div>
-</section>
 
 <!-- Latest Updates -->
-<section>
-<div class="section-card">
+<section style="padding: 80px 20px; background: #f5f5f5;">
+<div class="latest-updates">
 <h2>Latest Updates</h2>
 <div class="fb-card">
 <div id="fb-root"></div>
@@ -351,8 +274,8 @@ data-adapt-container-width="true">
 </section>
 
 <!-- Visit Us -->
-<section>
-<div class="section-card">
+<section style="padding: 80px 20px; background: #f5f5f5;">
+<div style="max-width: 1000px; margin: 0 auto; background: white; border-radius: 16px; box-shadow: 0 10px 35px rgba(0,0,0,0.08); padding: 40px;">
 <h2>Visit Us</h2>
 <p style="font-size: 1.1rem; line-height: 1.6;">
 <strong>1914 Turnbury Dr</strong><br>
