@@ -189,7 +189,44 @@ footer {
     background: #111;
     color: white;
 }
-/* ==================== MOBILE ==================== */
+
+/* Facebook Widget */
+.fb-card {
+    max-width: 500px;
+    margin: 20px auto;
+    min-height: 650px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+    position: relative;
+}
+.fb-fallback {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 40px 20px;
+    width: 100%;
+    display: none;
+}
+.fb-fallback p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+.fb-fallback a {
+    background: #1877f2;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+}
+
+/* MOBILE */
 @media (max-width: 768px) {
     .event-section, .content-section {
         background-attachment: scroll;
@@ -197,7 +234,6 @@ footer {
     .fb-card {
         height: 550px;
     }
-    /* Smaller logo on mobile from the start */
     .logo {
         height: 68px !important;
     }
@@ -217,17 +253,6 @@ footer {
         font-size: 13px;
         padding: 8px 12px;
     }
-}
-
-/* Facebook Widget Improvements */
-.fb-card {
-    max-width: 500px;
-    margin: 20px auto;
-    height: 650px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    background: #fff;
 }
 </style>
 </head>
@@ -296,6 +321,7 @@ footer {
     <script async defer crossorigin="anonymous" 
             src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v20.0">
     </script>
+    
     <div class="fb-page"
          data-href="https://www.facebook.com/ajmcmurphys/"
          data-tabs="timeline"
@@ -305,6 +331,14 @@ footer {
          data-small-header="false"
          data-hide-cover="false"
          data-show-facepile="true">
+    </div>
+
+    <!-- Fallback if Facebook widget fails to load -->
+    <div class="fb-fallback" id="fb-fallback">
+        <p><strong>Follow us on Facebook</strong><br>for the latest news, events, and specials!</p>
+        <a href="https://www.facebook.com/ajmcmurphys/" target="_blank">
+            <i class="fab fa-facebook-f"></i> Visit Our Facebook Page
+        </a>
     </div>
 </div>
 </div>
@@ -335,16 +369,29 @@ src="https://www.google.com/maps?q=1914+Turnbury+Dr+Greenville+NC&output=embed">
 
 <script>
 function toggleMenu() {
-document.getElementById("menu").classList.toggle("open");
-document.getElementById("overlay").classList.toggle("show");
+    document.getElementById("menu").classList.toggle("open");
+    document.getElementById("overlay").classList.toggle("show");
 }
+
 window.addEventListener("scroll", function() {
-const header = document.querySelector(".header");
-if (window.scrollY > 50) {
-header.classList.add("scrolled");
-} else {
-header.classList.remove("scrolled");
-}
+    const header = document.querySelector(".header");
+    if (window.scrollY > 50) {
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
+    }
+});
+
+// Facebook Fallback Logic
+window.addEventListener('load', function() {
+    setTimeout(() => {
+        const fbContainer = document.querySelector('.fb-page');
+        const fallback = document.getElementById('fb-fallback');
+        
+        if (fbContainer && fbContainer.offsetHeight < 200) {
+            fallback.style.display = 'block';
+        }
+    }, 3000); // Give Facebook 3 seconds to load
 });
 </script>
 </body>
