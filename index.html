@@ -4,17 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AJ McMurphy's Irish Pub</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 <style>
 html {
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
 }
-
 body {
     margin: 0;
     font-family: 'Outfit', sans-serif;
@@ -37,40 +34,33 @@ body {
     z-index: 100;
     transition: all 0.35s ease;
 }
-
 .header.scrolled {
     padding: 10px 25px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.08);
 }
-
 .logo {
     height: 120px;
     width: auto;
     transition: 0.3s;
 }
-
 .header.scrolled .logo {
     height: 70px;
 }
-
 .header-right {
     display: flex;
     align-items: center;
     gap: 12px;
 }
-
 .socials a {
     color: #444;
     margin: 0 4px;
     font-size: 16px;
     transition: 0.2s;
 }
-
 .socials a:hover {
     color: #2e7d32;
     transform: translateY(-2px);
 }
-
 .cta {
     background: linear-gradient(135deg, #2e7d32, #1b5e20);
     color: white;
@@ -81,7 +71,6 @@ body {
     white-space: nowrap;
     transition: all 0.2s ease;
 }
-
 .cta:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(46, 125, 50, 0.3);
@@ -102,7 +91,6 @@ body {
     z-index: 1001;
     font-family: 'Outfit', sans-serif;
 }
-
 .sidemenu a {
     display: block;
     color: white;
@@ -113,16 +101,12 @@ body {
     border-radius: 8px;
     transition: all 0.2s ease;
 }
-
 .sidemenu a:hover {
     background: rgba(255,255,255,0.1);
     padding-left: 20px;
     color: #90ee90;
 }
-
-.sidemenu.open {
-    transform: translateX(0);
-}
+.sidemenu.open { transform: translateX(0); }
 
 .overlay {
     position: fixed;
@@ -133,7 +117,6 @@ body {
     transition: 0.3s;
     z-index: 1000;
 }
-
 .overlay.show {
     opacity: 1;
     pointer-events: all;
@@ -141,12 +124,10 @@ body {
 
 /* FULL SCREEN SECTIONS */
 .event-section {
-    min-height: 100svh;
-    height: 100svh;
+    height: 100vh;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -156,7 +137,6 @@ body {
     scroll-snap-align: start;
     scroll-snap-stop: always;
 }
-
 .event-section::before {
     content: '';
     position: absolute;
@@ -170,17 +150,13 @@ body {
     z-index: 2;
     max-width: 90%;
 }
-
-.hero h1,
-.event-section h2 {
+.hero h1, .event-section h2 {
     font-size: clamp(2.2rem, 7vw, 3.8rem);
     margin: 0 0 12px 0;
     line-height: 1.1;
     font-weight: 700;
 }
-
-.subheading,
-.event-section p {
+.subheading, .event-section p {
     font-size: clamp(1.4rem, 4vw, 2.1rem);
     font-weight: 500;
     letter-spacing: 3px;
@@ -190,8 +166,7 @@ body {
 
 /* Content Sections */
 .content-section {
-    min-height: 100svh;
-    height: 100svh;
+    height: 100vh;
     background: #f5f5f5;
     display: flex;
     align-items: center;
@@ -199,7 +174,6 @@ body {
     scroll-snap-align: start;
     scroll-snap-stop: always;
 }
-
 .content-card {
     max-width: 1000px;
     width: 90%;
@@ -209,7 +183,6 @@ body {
     padding: 35px 40px 50px 40px;
     text-align: center;
 }
-
 .content-card h2 {
     margin-top: 10px;
     margin-bottom: 30px;
@@ -224,68 +197,49 @@ footer {
     color: white;
 }
 
-/* ==================== iPAD / TABLET FIX ==================== */
-@media screen and (min-width: 769px) and (max-width: 1366px) {
-
+/* ==================== TABLET / iPAD FIXES ==================== */
+@media (min-width: 769px) and (max-width: 1366px) {
     .event-section {
         background-attachment: scroll !important;
-        background-position: center center !important;
-        background-repeat: no-repeat !important;
         background-size: cover !important;
-
-        min-height: 100svh;
-        height: 100svh;
-
-        transform: translate3d(0,0,0);
-        -webkit-transform: translate3d(0,0,0);
-
-        will-change: transform;
-
-        backface-visibility: hidden;
-        -webkit-backface-visibility: hidden;
+        background-position: center center !important;
+        -webkit-background-size: cover !important;
     }
-
 }
 
-/* Optional landscape crop adjustment */
-@media screen and (orientation: landscape) and (max-width: 1366px) {
-    .hero {
-        background-position: center 35%;
+/* Stronger fix specifically for iPad Landscape */
+@media (min-width: 769px) and (max-width: 1366px) and (orientation: landscape) {
+    .event-section {
+        background-attachment: scroll !important;
+        background-size: cover !important;
+        background-position: center center !important;
+        -webkit-background-size: cover !important;
     }
 }
 
 /* MOBILE */
 @media (max-width: 768px) {
-
-    .event-section,
-    .content-section {
+    .event-section, .content-section {
         background-attachment: scroll;
     }
-
     .fb-card {
         height: 550px;
     }
-
     .logo {
         height: 68px !important;
     }
-
     .header.scrolled .logo {
         height: 55px !important;
     }
-
     .header {
         padding: 12px 15px;
     }
-
     .header-right {
         gap: 8px;
     }
-
     .socials a {
         font-size: 15px;
     }
-
     .cta {
         font-size: 13px;
         padding: 8px 12px;
@@ -303,7 +257,6 @@ footer {
     background: #fff;
     position: relative;
 }
-
 .fb-fallback {
     position: absolute;
     top: 50%;
@@ -314,13 +267,11 @@ footer {
     width: 100%;
     display: none;
 }
-
 .fb-fallback p {
     font-size: 1.1rem;
     color: #555;
     margin-bottom: 20px;
 }
-
 .fb-fallback a {
     background: #1877f2;
     color: white;
@@ -332,7 +283,6 @@ footer {
 }
 </style>
 </head>
-
 <body>
 
 <div class="sidemenu" id="menu">
@@ -341,25 +291,19 @@ footer {
 <a href="hours.html">Hours</a>
 <a href="contact.html">Contact</a>
 </div>
-
 <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
 <div class="header">
 <img src="logo.jpg" class="logo">
-
 <div class="header-right">
-
 <div class="socials">
 <a href="https://www.facebook.com/ajmcmurphys/" target="_blank"><i class="fab fa-facebook-f"></i></a>
 <a href="#"><i class="fab fa-x-twitter"></i></a>
 <a href="#"><i class="fab fa-instagram"></i></a>
 <a href="#"><i class="fab fa-tiktok"></i></a>
 </div>
-
 <a href="menu.html" class="cta">View Menu</a>
-
 <div class="menu-btn" onclick="toggleMenu()">☰</div>
-
 </div>
 </div>
 
@@ -398,17 +342,12 @@ footer {
 <!-- Latest Updates -->
 <div class="content-section">
 <div class="content-card">
-
 <h2>Latest Updates</h2>
-
 <div class="fb-card">
-
 <div id="fb-root"></div>
-
 <script async defer crossorigin="anonymous"
 src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v20.0">
 </script>
-
 <div class="fb-page"
 data-href="https://www.facebook.com/ajmcmurphys/"
 data-tabs="timeline"
@@ -419,18 +358,11 @@ data-small-header="false"
 data-hide-cover="false"
 data-show-facepile="true">
 </div>
-
 <div class="fb-fallback" id="fb-fallback">
-<p>
-<strong>Follow us on Facebook</strong><br>
-for the latest news, events, and specials!
-</p>
-
+<p><strong>Follow us on Facebook</strong><br>for the latest news, events, and specials!</p>
 <a href="https://www.facebook.com/ajmcmurphys/" target="_blank">
-<i class="fab fa-facebook-f"></i>
-Visit Our Facebook Page
+<i class="fab fa-facebook-f"></i> Visit Our Facebook Page
 </a>
-
 </div>
 </div>
 </div>
@@ -439,15 +371,12 @@ Visit Our Facebook Page
 <!-- Visit Us -->
 <div class="content-section">
 <div class="content-card">
-
 <h2>Visit Us</h2>
-
 <p style="font-size: 1.25rem; line-height: 1.7; margin-bottom: 25px;">
 <strong>1914 Turnbury Dr</strong><br>
 Greenville, NC<br><br>
 (252) 355-7956
 </p>
-
 <iframe
 width="100%"
 height="420"
@@ -455,52 +384,37 @@ style="border:0; border-radius: 12px;"
 loading="lazy"
 src="https://www.google.com/maps?q=1914+Turnbury+Dr+Greenville+NC&output=embed">
 </iframe>
-
 </div>
 </div>
-
-<footer>
-© 2026 AJ McMurphy's Irish Pub
-</footer>
 
 <script>
 function toggleMenu() {
-    document.getElementById("menu").classList.toggle("open");
-    document.getElementById("overlay").classList.toggle("show");
+document.getElementById("menu").classList.toggle("open");
+document.getElementById("overlay").classList.toggle("show");
 }
-
 window.addEventListener("scroll", function() {
-
-    const header = document.querySelector(".header");
-
-    if (window.scrollY > 50) {
-        header.classList.add("scrolled");
-    } else {
-        header.classList.remove("scrolled");
-    }
+const header = document.querySelector(".header");
+if (window.scrollY > 50) {
+header.classList.add("scrolled");
+} else {
+header.classList.remove("scrolled");
+}
 });
-
-/* Facebook Fallback Logic */
+// Facebook Fallback Logic
 window.addEventListener('load', function() {
-
     setTimeout(() => {
-
         const fbPage = document.querySelector('.fb-page');
         const fallback = document.getElementById('fb-fallback');
-
+        
         if (fbPage) {
-
             const height = fbPage.offsetHeight || 0;
-
+            // Only show fallback if widget is clearly not loaded properly
             if (height < 150) {
                 fallback.style.display = 'block';
             }
         }
-
-    }, 8000);
-
+    }, 3500); // Increased delay to give Facebook more time to load on mobile
 });
 </script>
-
 </body>
 </html>
