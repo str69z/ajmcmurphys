@@ -406,13 +406,18 @@ header.classList.remove("scrolled");
 });
 // Facebook Fallback Logic
 window.addEventListener('load', function() {
-setTimeout(() => {
-const fbContainer = document.querySelector('.fb-page');
-const fallback = document.getElementById('fb-fallback');
-if (fbContainer && fbContainer.offsetHeight < 200) {
-fallback.style.display = 'block';
-}
-}, 3000);
+    setTimeout(() => {
+        const fbPage = document.querySelector('.fb-page');
+        const fallback = document.getElementById('fb-fallback');
+        
+        if (fbPage) {
+            const height = fbPage.offsetHeight || 0;
+            // Only show fallback if widget is clearly not loaded properly
+            if (height < 150) {
+                fallback.style.display = 'block';
+            }
+        }
+    }, 3500); // Increased delay to give Facebook more time to load on mobile
 });
 </script>
 </body>
