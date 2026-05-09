@@ -197,24 +197,23 @@ footer {
     color: white;
 }
 
-/* ==================== TABLET / iPAD ==================== */
+/* ==================== TABLET / iPAD FIXES ==================== */
 @media (min-width: 769px) and (max-width: 1366px) {
     .event-section {
-        background-attachment: scroll !important;   /* Stronger fix for landscape */
-        background-size: cover;
-        background-position: center;
-    }
-    .content-section {
-        height: 100vh;
+        background-attachment: scroll !important;
+        background-size: cover !important;
+        background-position: center center !important;
+        -webkit-background-size: cover !important;
     }
 }
 
-/* Extra safety for iPad Landscape */
+/* Stronger fix specifically for iPad Landscape */
 @media (min-width: 769px) and (max-width: 1366px) and (orientation: landscape) {
     .event-section {
         background-attachment: scroll !important;
-        background-size: cover;
-        background-position: center;
+        background-size: cover !important;
+        background-position: center center !important;
+        -webkit-background-size: cover !important;
     }
 }
 
@@ -285,7 +284,7 @@ footer {
 </style>
 </head>
 <body>
-<!-- [Your full body content remains the same as you provided] -->
+
 <div class="sidemenu" id="menu">
 <a href="index.html">Home</a>
 <a href="menu.html">Menu</a>
